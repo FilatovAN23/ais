@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЭУМК: Программирование на Java</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: #f5f7fa;
+            color: #333;
+        }
+        /* шапка */
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 1.2rem;
+        }
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover {
+            color: #f1c40f;
+            border-bottom-color: #f1c40f;
+        }
+        /* основной контент */
+        main {
+            padding: 2rem 0;
+        }
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+            color: #34495e;
+        }
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.2rem 0 0.5rem;
+            color: #2980b9;
+        }
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.3rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        th {
+            background: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 1.5rem 0;
+        }
+        code {
+            font-family: 'Courier New', monospace;
+            background: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #c7254e;
+        }
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        .test-item {
+            background: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .test-options {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .test-options label {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .author-footer {
+            margin-top: 2rem;
+            text-align: right;
+            font-style: italic;
+            border-top: 1px dashed #ccc;
+            padding-top: 1rem;
+        }
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>☕ Программирование на Java</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Аннотация</a></li>
+                    <li><a href="#program">Рабочая программа</a></li>
+                    <li><a href="#theory1">Теория: Основы</a></li>
+                    <li><a href="#theory2">Теория: ООП</a></li>
+                    <li><a href="#practice">Практика</a></li>
+                    <li><a href="#tests">Тесты</a></li>
+                    <li><a href="#projects">Итоговый проект</a></li>
+                    <li><a href="#sources">Литература</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Аннотация (п.8) -->
+        <section id="about">
+            <h2>Аннотация курса</h2>
+            <p>Данный электронный учебно-методический комплекс предназначен для изучения основ программирования на языке Java. Курс ориентирован на начинающих разработчиков и студентов технических специальностей. Материал включает теоретические основы синтаксиса, объектно-ориентированное программирование, а также практические задания для закрепления навыков. Комплекс содержит тесты для самопроверки, контрольные вопросы и примеры кода. Разработан в соответствии с современными требованиями к подготовке IT-специалистов.</p>
+            <div class="author-footer"><strong>Автор:</strong> Студент группы ________ [Фамилия И.О.]</div>
+        </section>
+
+        <!-- Рабочая программа (п.1) -->
+        <section id="program">
+            <h2>Рабочая учебная программа (РУП)</h2>
+            <h3>Цель изучения курса</h3>
+            <p>Формирование фундаментальных знаний и практических навыков программирования на Java для разработки консольных и простых графических приложений.</p>
+
+            <h3>Задачи курса</h3>
+            <ul>
+                <li>Изучить синтаксис и основные конструкции языка Java.</li>
+                <li>Освоить принципы объектно-ориентированного программирования.</li>
+                <li>Научиться работать с базовыми библиотеками классов (Collections, ввод/вывод).</li>
+            </ul>
+
+            <h3>Приобретаемые знания, умения и навыки</h3>
+            <ul>
+                <li><strong>Знать:</strong> синтаксис Java, типы данных, управляющие конструкции, принципы ООП.</li>
+                <li><strong>Уметь:</strong> создавать и компилировать программы, использовать отладчик, обрабатывать исключения.</li>
+                <li><strong>Владеть:</strong> навыками работы в IDE и написания кода с использованием стандартной библиотеки.</li>
+            </ul>
+
+            <h3>Основные результаты обучения</h3>
+            <p>Слушатель способен самостоятельно разработать простое объектно-ориентированное приложение на Java, реализующее заданный алгоритм и использующее коллекции данных.</p>
+
+            <h3>Дидактические единицы (разделы)</h3>
+            <table>
+                <tr><th>№</th><th>Название раздела</th><th>Объём (ак. часы)</th></tr>
+                <tr><td>1</td><td>Основы синтаксиса Java. Типы данных и операторы</td><td>18</td></tr>
+                <tr><td>2</td><td>Объектно-ориентированное программирование в Java</td><td>22</td></tr>
+                <tr><td></td><td><strong>Итого</strong></td><td><strong>40</strong></td></tr>
+            </table>
+        </section>
+
+        <!-- Теория: раздел 1 -->
+        <section id="theory1">
+            <h2>Раздел 1. Основы синтаксиса Java</h2>
+            <h3>1.1 Структура программы и переменные</h3>
+            <p>Java — строго типизированный объектно-ориентированный язык. Точка входа — метод <code>public static void main(String[] args)</code>. Примитивные типы: <code>byte, short, int, long, float, double, char, boolean</code> [1, с.45].</p>
+            <pre><code>public class Main {
+    public static void main(String[] args) {
+        int number = 10;
+        double pi = 3.1415;
+        boolean isJavaFun = true;
+        System.out.println("Число: " + number);
+    }
+}</code></pre>
+
+            <h3>1.2 Управляющие конструкции</h3>
+            <p>Условный оператор <code>if-else</code>, циклы <code>for</code>, <code>while</code>, <code>do-while</code>, оператор выбора <code>switch</code> [2, гл.3].</p>
+
+            <h4>Контрольные вопросы (раздел 1)</h4>
+            <ol>
+                <li>Какие примитивные типы данных существуют в Java?</li>
+                <li>В чём разница между префиксным и постфиксным инкрементом?</li>
+                <li>Для чего используется оператор <code>switch</code>?</li>
+                <li>Как объявить константу в Java?</li>
+                <li>Что такое приведение типов?</li>
+            </ol>
+
+            <h4>Упражнения (раздел 1)</h4>
+            <ol>
+                <li>Написать программу, вычисляющую факториал числа.</li>
+                <li>Вывести все простые числа от 1 до 100.</li>
+                <li><strong>Пример выполнения:</strong> Программа определения високосного года.
+                    <pre><code>public class LeapYear {
+    public static void main(String[] args) {
+        int year = 2024;
+        boolean isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        System.out.println(year + " високосный? " + isLeap);
+    }
+}</code></pre>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Теория: раздел 2 -->
+        <section id="theory2">
+            <h2>Раздел 2. Объектно-ориентированное программирование</h2>
+            <h3>2.1 Классы и объекты</h3>
+            <p>Класс — шаблон для создания объектов. Инкапсуляция реализуется модификаторами доступа [3, гл.2].</p>
+            <pre><code>public class Car {
+    private String model;
+    private int speed;
+
+    public Car(String model) {
+        this.model = model;
+    }
+
+    public void accelerate() {
+        speed += 10;
+    }
+}</code></pre>
+
+            <h3>2.2 Наследование и полиморфизм</h3>
+            <p>Наследование (<code>extends</code>) и полиморфизм позволяют создавать гибкие иерархии классов [4, гл.4].</p>
+
+            <h4>Контрольные вопросы (раздел 2)</h4>
+            <ol>
+                <li>Что такое конструктор?</li>
+                <li>Чем отличается перегрузка от переопределения методов?</li>
+                <li>Для чего нужен модификатор <code>static</code>?</li>
+                <li>Что такое абстрактный класс?</li>
+                <li>Приведите пример полиморфизма.</li>
+            </ol>
+
+            <h4>Упражнения (раздел 2)</h4>
+            <ol>
+                <li>Создать класс <code>Book</code> с полями и методом отображения.</li>
+                <li>Реализовать класс <code>Student</code>, наследующий от <code>Person</code>.</li>
+                <li><strong>Пример выполнения:</strong> Интерфейс <code>Shape</code> и классы <code>Circle</code>, <code>Rectangle</code>.
+                    <pre><code>interface Shape {
+    double getArea();
+}
+class Circle implements Shape {
+    private double radius;
+    public Circle(double r) { radius = r; }
+    public double getArea() { return Math.PI * radius * radius; }
+}
+class Rectangle implements Shape {
+    private double w, h;
+    public Rectangle(double w, double h) { this.w = w; this.h = h; }
+    public double getArea() { return w * h; }
+}</code></pre>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Практические задания (п.6) и комплекс упражнений -->
+        <section id="practice">
+            <h2>Практикум</h2>
+            <h3>Комплекс практических заданий</h3>
+            <div style="background:#f0f8ff; padding:1rem; border-radius:8px; margin-bottom:2rem;">
+                <p><strong>Критерии оценивания (макс. 14 баллов):</strong> 0-4 → неуд, 5-8 → уд, 9-11 → хор, 12-14 → отл.</p>
+            </div>
+
+            <h4>Задание 1 (Начальный уровень)</h4>
+            <p>Разработать калькулятор для работы с целыми числами (+, -, *, /). Обработать деление на ноль.<br>
+            <em>Критерии:</em> работа арифметики (2 б), обработка ошибок (1 б), читаемость кода (1 б). Макс. 4 б.</p>
+
+            <h4>Задание 2 (Средний уровень)</h4>
+            <p>Создать класс <code>BankAccount</code> с полями <code>accountNumber</code>, <code>balance</code>. Реализовать методы <code>deposit(double amount)</code> и <code>withdraw(double amount)</code> с проверками.<br>
+            <em>Критерии:</em> корректность логики (3 б), инкапсуляция (1 б), тестовый пример (1 б). Макс. 5 б.</p>
+
+            <h4>Задание 3 (Продвинутый уровень)</h4>
+            <p>Используя <code>ArrayList</code>, создать программу «Каталог книг» (добавление, удаление, поиск по автору).<br>
+            <em>Критерии:</em> работа с коллекцией (2 б), реализация поиска (2 б), консольное меню (1 б). Макс. 5 б.</p>
+
+            <h3>Упражнения для самостоятельной работы</h3>
+            <ul>
+                <li>Написать программу-таймер, обратный отсчёт.</li>
+                <li>Реализовать сортировку массива пузырьком.</li>
+                <li>Создать класс «Треугольник» с методами вычисления площади и периметра.</li>
+            </ul>
+        </section>
+
+        <!-- Тестовые задания (п.5) – показаны примеры, всего 20 -->
+        <section id="tests">
+            <h2>Тестовые задания (образцы)</h2>
+            <p><em>Полный комплекс содержит 20 заданий. Шкала оценивания: 0-49% – неуд, 50-69% – уд, 70-89% – хор, 90-100% – отл.</em></p>
+
+            <div class="test-item">
+                <p><strong>1.</strong> Какой метод является точкой входа в программу?</p>
+                <div class="test-options">
+                    <label><input type="radio" name="q1" disabled> <code>public void main(String[] args)</code> (неправильный)</label>
+                    <label><input type="radio" name="q1" disabled> <code>public static void main(String[] args)</code> (правильный)</label>
+                    <label><input type="radio" name="q1" disabled> <code>static void main(String args)</code> (неправильный)</label>
+                </div>
+            </div>
+            <div class="test-item">
+                <p><strong>2.</strong> Какой тип данных целочисленный со знаком занимает 32 бита?</p>
+                <div class="test-options">
+                    <label><input type="radio" name="q2" disabled> <code>short</code> (неправильный)</label>
+                    <label><input type="radio" name="q2" disabled> <code>long</code> (неправильный)</label>
+                    <label><input type="radio" name="q2" disabled> <code>int</code> (правильный)</label>
+                </div>
+            </div>
+            <div class="test-item">
+                <p><strong>3.</strong> Какое ключевое слово используется для наследования?</p>
+                <div class="test-options">
+                    <label><input type="radio" name="q3" disabled> <code>implements</code> (неправильный)</label>
+                    <label><input type="radio" name="q3" disabled> <code>extends</code> (правильный)</label>
+                    <label><input type="radio" name="q3" disabled> <code>inherit</code> (неправильный)</label>
+                </div>
+            </div>
+            <div class="test-item">
+                <p><strong>4.</strong> Какое значение будет у <code>boolean b = (10 > 5) && (3 < 1);</code> ?</p>
+                <div class="test-options">
+                    <label><input type="radio" name="q4" disabled> <code>true</code> (неправильный)</label>
+                    <label><input type="radio" name="q4" disabled> <code>false</code> (правильный)</label>
+                    <label><input type="radio" name="q4" disabled> Ошибка компиляции (неправильный)</label>
+                </div>
+            </div>
+            <div class="test-item">
+                <p><strong>5.</strong> Выберите корректные названия переменных (можно несколько):</p>
+                <div class="test-options">
+                    <label><input type="checkbox" disabled> <code>2variable</code> (неправильный)</label>
+                    <label><input type="checkbox" disabled> <code>myVariable</code> (правильный)</label>
+                    <label><input type="checkbox" disabled> <code>_test</code> (правильный)</label>
+                </div>
+            </div>
+            <p><em>... и так далее до 20 заданий с различными типами блоков ответов.</em></p>
+        </section>
+
+        <!-- Итоговый контроль и проект (п.7) -->
+        <section id="projects">
+            <h2>Итоговый контроль</h2>
+            <p><strong>Форма:</strong> Итоговое тестирование + защита проекта (одно из практических заданий на выбор).</p>
+            <p><strong>Способ:</strong> Выполнение теста в ЭУМК (60% времени) и собеседование по коду с демонстрацией программы (40% времени).</p>
+
+            <h3>Инструментальные средства</h3>
+            <ul>
+                <li><strong>Среда разработки:</strong> IntelliJ IDEA / Eclipse</li>
+                <li><strong>Технические средства:</strong> ПК с JDK 11+</li>
+            </ul>
+        </section>
+
+        <!-- Литература (п.2) -->
+        <section id="sources">
+            <h2>Рекомендуемые источники</h2>
+            <ol>
+                <li>Хорстманн К.С. Java. Библиотека профессионала. Том 1. Основы. — 11-е изд. — М.: Вильямс, 2019.</li>
+                <li>Шилдт Г. Java. Полное руководство. — 10-е изд. — М.: Диалектика, 2018.</li>
+                <li>Эккель Б. Философия Java. — 4-е изд. — СПб.: Питер, 2020.</li>
+                <li>Блох Дж. Java. Эффективное программирование. — 3-е изд. — М.: Диалектика, 2019.</li>
+                <li>Официальная документация Oracle. The Java Tutorials — <a href="https://docs.oracle.com/javase/tutorial/" target="_blank">docs.oracle.com/javase/tutorial/</a></li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Электронный учебно-методический комплекс «Программирование на Java»</p>
+            <p>Разработано в рамках выполнения задания. <a href="#about">Сведения об авторе</a> на странице аннотации.</p>
+            <p>© 2026</p>
+        </div>
+    </footer>
+
+    <!-- Небольшой скрипт для плавной прокрутки (необязательно) -->
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
